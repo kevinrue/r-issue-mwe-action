@@ -1,0 +1,16 @@
+# action.yml
+name: 'Run R code in new issue comments'
+description: 'Run R code submitted as code chunks in the body of issue comments.'
+inputs:
+  issueid:  # id of input
+    description: 'Identifier of the issue'
+    required: true
+    default: '1' # TODO: remove this when the issue identifier is dynamically fetched
+outputs:
+  time: # id of output
+    description: 'The time the code was run.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.issueid }}
