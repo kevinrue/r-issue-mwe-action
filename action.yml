@@ -1,0 +1,16 @@
+# action.yml
+name: 'Run R code in issue'
+description: 'Run code submitted as a minimal working example in the body of an issue for an R package.'
+inputs:
+  issueid:  # id of input
+    description: 'Identifier of the issue'
+    required: true
+    default: '1'
+outputs:
+  errorcode: # id of output
+    description: 'The time the code was run.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.issueid }}
