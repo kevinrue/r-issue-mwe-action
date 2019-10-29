@@ -1,0 +1,21 @@
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  run_issue_code_job:
+    runs-on: ubuntu-latest
+    name: A job to run code chunks submitted in new issue comments.
+    # To use this repository's private action, you must check out the repository
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - uses: ./ # Uses an action in the root directory
+    - name: Run R code in new issue comment action step
+      id: run
+      uses: actions/r-issue-mwe-action@v1
+      with:
+        issueid: '1'
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.run.outputs.time }}"
