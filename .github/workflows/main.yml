@@ -13,8 +13,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     # This step references the directory that contains the action.
-    - name: run
+    - name: Run the Docker entrypoint
       uses: ./
-    # Use the output from the `hello` step
+      id: entrypoint
+    # Use the output from the `entrypoint` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.run.outputs.time }}"
+      run: echo "The time was ${{ steps.entrypoint.outputs.time }}"
