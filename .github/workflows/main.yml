@@ -12,10 +12,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - uses: ./ # Uses an action in the root directory
+    # This step references the directory that contains the action.
     - name: Run R code in new issue comment action step
       id: run
-      uses: actions/r-issue-mwe-action@v1
+      uses: ./.github/workflow
       with:
         issueid: '1'
     # Use the output from the `hello` step
