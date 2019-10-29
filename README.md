@@ -1,4 +1,4 @@
-# docker action: Run R code in issue
+# docker action: Run R code in new issue comments
 
 This actions runs R code in the body of an issue.
 
