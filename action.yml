@@ -7,7 +7,7 @@ inputs:
     required: true
     default: '1' # TODO: remove this when the issue identifier is dynamically fetched
 outputs:
-  errorcode: # id of output
+  time: # id of output
     description: 'The time the code was run.'
 runs:
   using: 'docker'
